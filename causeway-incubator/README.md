@@ -1,59 +1,77 @@
-# CausewayIncubator
+<h1 align="center">CausewayIncubator</h1>
+<p align="center">
+  <img src="/public/images/logo.svg" alt="logo" width="120px" height="120px"/>
+  <br>
+  <em>CausewayIncubator provides [short value statement]</em>
+  <br>
+</p>
+<p align="center">
+  <a><strong>CausewayIncubator</strong> [Link TBD]</a> by <a><strong>[the creators]</strong></a>
+</p>
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.17.
+<p align="center">
+  <a href="CONTRIBUTING.md">Contributing Guidelines</a>
+</p>
 
-## Development server
+<hr>
 
-To start a local development server, run:
+## Overview
 
-```bash
-ng serve
-```
+[Project description and novelty]
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Our platform uses the Angular framework along with Angular Material, RxJS, Typescript, and Sass. We use NgRx's Signal Store for frontend data management, Firebase for the backend, and dotenv for environment variables.
 
-## Code scaffolding
+<div align="center">
+  <img src="/public/favicon.ico" alt="Angular" width="40" height="40">
+  <img src="/public/images/angular-material-icon.png" alt="Angular Material" width="40" height="40">
+  <img src="/public/images/rxjs.png" alt="RxJS" width="40" height="40">
+  <img src="/public/images/typescript-icon.png" alt="TypeScript" width="40" height="40">
+  <img src="/public/images/sass.svg" alt="Sass" width="40" height="40">
+  <img src="/public/images/ngrx-icon.svg" alt="NgRx" width="40" height="40">
+  <img src="/public/images/firebase-icon.png" alt="Firebase" width="40" height="40">
+</div>
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Changelog
 
-```bash
-ng generate component component-name
-```
+For detailed information on changes and updates, please refer to our [Changelog](CHANGELOG.md).
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Contributing
 
-```bash
-ng generate --help
-```
+Want to report a bug, contribute some code, or improve the documentation? Excellent! Read through our [Contributing Guidelines](CONTRIBUTING.md) to learn about our submission process, coding rules, and more.
 
-## Building
+### Found a Bug?
 
-To build the project run:
+If you encounter any bugs, please [submit an issue](/issues/new?assignees=&labels=bug&template=bug_report.md&title=) using our **Bug Report** template on GitHub. Make sure to fill in all the required details, including a minimal reproduction of the bug, to help us address the issue quickly and effectively.
 
-```bash
-ng build
-```
+### Missing a Feature?
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+You can *request* a new feature by [submitting an issue](/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=) using our **Feature Request** template on GitHub. If you would like to *implement* a new feature, please open an issue first to discuss the proposal with the community and maintainers before creating a Pull Request.
 
-## Running unit tests
+### Got a Question or Problem?
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Do not open issues for general support questions. Instead, we recommend using [GitHub Discussions](/discussions) for any support-related questions. GitHub Discussions is a better place for questions because:
+- The community can engage directly, providing faster and more collaborative answers.
+- Questions and answers remain visible, so your inquiry and its resolution can help others in the future.
+- The voting and answer system helps highlight the most helpful responses.
+To save everyone’s time, we will systematically close any issues that are requests for general support and redirect users to GitHub Discussions.
 
-```bash
-ng test
-```
+### Code of Conduct
 
-## Running end-to-end tests
+Help us keep CausewayIncubator open and inclusive. Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md).
 
-For end-to-end (e2e) testing, run:
+## Community
 
-```bash
-ng e2e
-```
+You can connect with us Lab through the following channels:
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+- [Instagram: @tech4good.ucsc](https://www.instagram.com/tech4good.ucsc/)
+- [Email: tech4good@ucsc.edu](mailto:tech4good@ucsc.edu)
 
-## Additional Resources
+## Credit
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+As can be clearly seen, our documents and the processes we aim to work towards are modeled after or directly taken from those of the [Angular team](https://github.com/angular/angular).
+
+## Testing
+
+If you want to run a testing file in the repo please run the command:  npm test --  --silent=false {/$path_of_file_to_test}
+
+**Love CausewayIncubator? Give our repo a star :star: :arrow_up:.**

@@ -1,0 +1,65 @@
+<app-navbar></app-navbar>
+@if (waitlistData(); as data) {
+  <div class="early-access-container">
+    <!-- Core questions on motivation and desired value -->
+    @if (data.currentUser.accessState === AccessState.SUBMIT_INTEREST && !loading()) {
+      <h1>Hello and Welcome!</h1>
+      <form [formGroup]="backgroundForm" (ngSubmit)="submitInterest()">
+        <div class="form-field-group">
+          <mat-label class="question">
+            Which of the following best describe your background and interest in {{ appName }}?
+            @if (backgroundForm.hasError('noneChecked') && (backgroundForm.touched || backgroundForm.dirty)) {
+              <mat-error class="checkbox-error">Please select one to help us understand your background</mat-error>
+            }
+          </mat-label>
+          <div class="checkbox-group" formArrayName="backgroundSelections">
+            @for (item of backgroundSelections.controls; track item.value.fieldName; let i = $index) {
+              <ng-container [formGroupName]="i">
+                <mat-checkbox formControlName="checked" [aria-label]="item.value.ariaLabel" (click)="check(item)">{{ item.value.label }}</mat-checkbox>
+              </ng-container>
+            }
+          </div>
+        </div>
+        @if (backgroundForm.contains('backgroundOther')) {
+          <div class="form-field-group">
+            <mat-label class="question">How would you describe your background and interest in {{ appName }}?</mat-label>
+            <mat-form-field class="background-other" appearance="fill">
+              <mat-label>Your background and interest</mat-label>
+              <input matInput name="backgroundOther" formControlName="backgroundOther" required>
+              @if (backgroundForm.hasError('needsOtherText') && (backgroundForm.touched || backgroundForm.dirty)) {
+                <mat-error>Can you elaborate on your selection of 'Other'?</mat-error>
+              }
+            </mat-form-field>
+          </div>
+        }
+        <div class="form-field-group">
+          <mat-label class="question">What do you hope to experience or get out of an application for {{ appArea }}?</mat-label>
+          <mat-form-field class="desired-value" appearance="fill">
+            <mat-label>Your ideal experience or outcomes</mat-label>
+            <textarea #text matInput formControlName="desiredValue" name="desiredValue" required></textarea>
+            @if (text.value?.length < 50) {
+              <mat-hint>You've shared {{text.value?.length || 0}} of 50 characters. If you could say a little more about your goals or why you decided to try it out, that'd help us! 🙏</mat-hint>
+            } @else {
+              <mat-hint>You're at {{text.value?.length}} characters! Telling us about your goals or why you decided to try it out helps us design the experience to better support you! 🙏</mat-hint>
+            }
+          </mat-form-field>
+        </div>
+        <button type="submit" class="btn continue-btn" [disabled]="backgroundForm.invalid">
+          Submit and Continue 
+          <img src="https://icongr.am/feather/arrow-right.svg?size=20&color=B2B6C7">
+        </button>
+      </form>
+    } @else if (data.currentUser.accessState === AccessState.WAITING && !loading()) {
+    <!-- Waiting list position and path for going getting access early -->
+      @let position = positionText$ | async;
+      @let total = totalWaiting$ | async;
+      <h1>You are <span class="your-position">{{ position }}</span> of {{ total }} on the waitlist</h1>
+      <p>Thanks for signing up! We're hand-reviewing your response and personally onboarding our first 100 users to ensure that we can give you a delightful experience. We'll be in touch soon 😊</p>
+      <p>Also, we haven't had the chance to implement a formal referral system yet, but if you would love to get off the waitlist faster and can help us reach others, email {{ outreachLeadName }} at <a [href]="'mailto:' + outreachLeadEmail">{{ outreachLeadEmail }}</a> and let's talk about getting you early access!</p>
+    } @else if (loading()) {
+      <div class="loading-container">
+        Submitting... <mat-spinner [diameter]="20" [strokeWidth]="2"></mat-spinner>
+      </div>
+    }
+  </div>
+}

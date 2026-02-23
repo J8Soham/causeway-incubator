@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "causeway-incubator",
+    "dev": "causeway-incubator-dev"
+  },
+  "targets": {},
+  "etags": {}
+}

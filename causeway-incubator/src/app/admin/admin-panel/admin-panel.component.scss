@@ -1,0 +1,14 @@
+:host {
+  display: block;
+  .admin-panel-container {
+    width: 100%;
+
+    #waitlist-table {
+      width: 100%;
+
+      .update-btn {
+        cursor: pointer;
+      }
+    }
+  }
+}
