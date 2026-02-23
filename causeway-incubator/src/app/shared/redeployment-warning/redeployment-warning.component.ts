@@ -29,7 +29,7 @@ export class RedeploymentWarningComponent implements OnInit {
   }
 
   // --------------- OTHER -------------------------------
-  
+
   constructor(public detectRedeployment: DetectRedeploymentService) {}
 
   ngOnInit() {

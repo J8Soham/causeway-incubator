@@ -111,8 +111,8 @@ export class EarlyAccessComponent implements OnInit {
         label: 'Other (none are a perfect fit)',
         ariaLabel: 'Other',
         checked: false,
-      })
-    ])
+      }),
+    ]),
   }, { validators: this.oneCheckedValidator });
 
   /** Convenience getter for desiredValue. */
@@ -129,7 +129,7 @@ export class EarlyAccessComponent implements OnInit {
   get backgroundSelections() {
     return this.backgroundForm.get('backgroundSelections') as FormArray;
   }
- 
+
   // --------------- COMPUTED DATA -----------------------
 
   /** Waitlist data from app-state, user, and user-context. */
@@ -180,7 +180,7 @@ export class EarlyAccessComponent implements OnInit {
 
   // --------------- EVENT HANDLING ----------------------
 
-  /** 
+  /**
    * Enable and disable the backgroundOther text input depending on if other is checked.
    * It is important that the form model is the source of truth not the template, so if we want
    * the validation to go away when the input is no longer needed, it needs to be disabled on the model

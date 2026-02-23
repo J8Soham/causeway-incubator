@@ -217,7 +217,7 @@ export class FirebaseMockService implements DatabaseService {
 
     if (batch) {
       const docRef = {
-        path: `${collectionName}/${entity.__id}`
+        path: `${collectionName}/${entity.__id}`,
       };
       return batch.set(docRef, entityFinal);
     } else {
@@ -234,7 +234,7 @@ export class FirebaseMockService implements DatabaseService {
 
     if (batch) {
       const docRef = {
-        path: `${collectionName}/${id}`
+        path: `${collectionName}/${id}`,
       };
       return batch.update(docRef, changesFinal);
     } else {
@@ -252,7 +252,7 @@ export class FirebaseMockService implements DatabaseService {
 
     if (batch) {
       const docRef = {
-        path: `${collectionName}/${id}`
+        path: `${collectionName}/${id}`,
       };
       return batch.update(docRef, changes);
     } else {
