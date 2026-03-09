@@ -1,0 +1,233 @@
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* Layout */
+.home-layout {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 32px;
+  align-items: start;
+}
+
+.main-content {
+  min-width: 0;
+}
+
+.sidebar {
+  position: sticky;
+  top: 80px;
+}
+
+/* Loading & Error */
+.loading-state,
+.error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  text-align: center;
+  color: #5f6368;
+
+  mat-icon {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+    color: #d93025;
+    margin-bottom: 16px;
+  }
+
+  p {
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+}
+
+/* Course Header */
+.course-header {
+  margin-bottom: 24px;
+
+  h1 {
+    margin: 0 0 4px 0;
+    font-size: 28px;
+    font-weight: 700;
+    color: #202124;
+  }
+
+  .course-subtitle {
+    font-size: 16px;
+    color: #5f6368;
+    margin: 0 0 8px 0;
+  }
+
+  .course-description {
+    font-size: 14px;
+    color: #80868b;
+    line-height: 1.5;
+    margin: 0;
+  }
+}
+
+/* Progress */
+.progress-section {
+  margin-bottom: 24px;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.progress-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #202124;
+}
+
+.progress-percent {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a73e8;
+}
+
+/* Continue CTA */
+.continue-card {
+  margin-bottom: 24px;
+}
+
+.continue-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.continue-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.continue-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #80868b;
+  font-weight: 600;
+}
+
+.continue-step {
+  font-size: 16px;
+  font-weight: 600;
+  color: #202124;
+}
+
+.continue-context {
+  font-size: 13px;
+  color: #5f6368;
+}
+
+/* Legends */
+.legends-section {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 32px;
+  padding: 12px 16px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.legend-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.legend-title {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #80868b;
+}
+
+.legend-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #5f6368;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  display: inline-block;
+
+  &.status-not-started {
+    background: #e8eaed;
+  }
+
+  &.status-in-progress {
+    background: #fce8e6;
+  }
+
+  &.status-complete {
+    background: #e6f4ea;
+  }
+
+  &.status-similar-completed {
+    background: #e8f0fe;
+  }
+}
+
+.legend-icon {
+  font-size: 14px !important;
+  width: 14px !important;
+  height: 14px !important;
+  color: #5f6368;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .home-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .home-container {
+    padding: 16px;
+  }
+
+  .course-header h1 {
+    font-size: 22px;
+  }
+
+  .legends-section {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .continue-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

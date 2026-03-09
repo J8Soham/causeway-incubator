@@ -1,0 +1,18 @@
+<aside class="sidebar-toc">
+  <h3>Web Development Micro-Roles</h3>
+  <p class="sidebar-subtitle">Components, Containers, and Beyond</p>
+
+  @for (role of roles(); track role.__id) {
+  <div class="toc-role">
+    <button class="toc-role-heading" (click)="onRoleClick(role.__id)">
+      <img [src]="getIconPath(role.name)" [alt]="role.name + ' icon'" class="toc-role-icon" />
+      <span class="toc-role-name" [style.color]="getRoleColor(role.name)">{{ role.name }}</span>
+    </button>
+    <ul class="toc-subgoals">
+      @for (subgoal of getSubgoals(role.__id); track subgoal.__id) {
+      <li>{{ subgoal.name }}</li>
+      }
+    </ul>
+  </div>
+  }
+</aside>

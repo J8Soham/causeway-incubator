@@ -1,0 +1,28 @@
+<div class="guide-panel-backdrop" (click)="close()"></div>
+<div class="guide-panel">
+    <div class="guide-header">
+        <div class="guide-title">
+            <mat-icon class="guide-icon">menu_book</mat-icon>
+            <h3>{{ step().name }}</h3>
+        </div>
+        <button mat-icon-button (click)="close()" aria-label="Close guide panel">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+
+    <div class="guide-body">
+        @if (loading()) {
+        <div class="guide-loading">
+            <mat-spinner diameter="32"></mat-spinner>
+            <span>Loading guide...</span>
+        </div>
+        } @else if (error()) {
+        <div class="guide-error">
+            <mat-icon>info</mat-icon>
+            <span>{{ error() }}</span>
+        </div>
+        } @else {
+        <div class="guide-content" [innerHTML]="guideHtml()"></div>
+        }
+    </div>
+</div>

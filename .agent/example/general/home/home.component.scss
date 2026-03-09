@@ -1,0 +1,97 @@
+$card-max-width: max(280px, 30vw);
+$card-background-color: #fff;
+$card-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+
+.dashboard-container {
+  padding-top: 35px;
+  height: calc(100% - 70px);
+  /* Adjust the height to account for padding */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .goals {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    .card-parent {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      width: $card-max-width;
+      box-sizing: border-box;
+      text-align: left;
+      font-family: 'Oxygen', sans-serif;
+      border-radius: 10px 10px 0px 0px;
+      background-color: $card-background-color;
+      box-shadow: $card-shadow;
+      padding: 10px;
+      border-bottom: 0px;
+      color: #4B5853;
+    }
+
+    .weekly-card-parent {
+      border: 3px solid #ade1dd;
+      border-bottom: 0px;
+    }
+
+    .quarterly-card-parent {
+      border: 3px solid #ccefec;
+      border-bottom: 0px;
+    }
+
+    .long-term-card-parent {
+      border: 3px solid #e1fbf9;
+      border-bottom: 0px;
+    }
+    .notes-page-container{
+      display: flex;
+      position: absolute;
+      flex-direction: column;
+      z-index: 1;
+      bottom: 0;
+      width: 100%;
+      height: calc(100% - 70px);
+      background-color: #F2FFFE;
+      .close-button {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        transform: scale(1.4);
+        margin-left: auto;
+      }
+      .notes-page {
+        margin-top: 5%;
+      }
+    }
+  }
+
+}
+
+// responsive design for smaller screens
+@media (max-width: 850px) {
+
+  .dashboard-container {
+    padding-top: 0;
+    gap: 8px;
+
+    .goals {
+      display: block;
+      padding: 12px;
+    }
+  }
+
+  app-quarterly-goals {
+    width: 80%;
+  }
+}
+
+@media (max-height: 700px) {
+  app-time-header {
+    display: none;
+  }
+}

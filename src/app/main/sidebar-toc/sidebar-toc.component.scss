@@ -1,0 +1,72 @@
+.sidebar-toc {
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+
+  h3 {
+    margin: 0 0 4px 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #202124;
+  }
+
+  .sidebar-subtitle {
+    margin: 0 0 16px 0;
+    font-size: 13px;
+    color: #5f6368;
+  }
+}
+
+.toc-role {
+  margin-bottom: 12px;
+}
+
+.toc-role-heading {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  padding: 4px 0;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  .toc-role-icon {
+    width: 16px;
+    height: auto;
+  }
+}
+
+.toc-subgoals {
+  list-style: none;
+  padding-left: 24px;
+  margin: 4px 0 0 0;
+
+  li {
+    font-size: 13px;
+    color: #5f6368;
+    padding: 2px 0;
+    position: relative;
+
+    &::before {
+      content: '📋';
+      position: absolute;
+      left: -18px;
+      font-size: 11px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  :host {
+    display: none;
+  }
+}

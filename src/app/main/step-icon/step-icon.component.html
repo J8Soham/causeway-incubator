@@ -1,0 +1,7 @@
+<div class="step-icon" [ngClass]="statusClass()" [style.background-color]="blockColor()" [matTooltip]="step().name"
+  matTooltipPosition="above" (click)="onClick()" (keydown.enter)="onClick()" tabindex="0" role="button"
+  [attr.aria-label]="step().name">
+  @if (status() === 'in_progress') {
+  <mat-icon class="step-type-icon">{{ typeIcon() }}</mat-icon>
+  }
+</div>

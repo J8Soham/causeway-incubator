@@ -1,0 +1,43 @@
+.role-section {
+  margin-bottom: 32px;
+}
+
+.role-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+
+  .role-hex-icon {
+    width: 20px;
+    height: auto;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+
+.subgoal-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 8px 0;
+}
+
+.subgoal-label {
+  min-width: 140px;
+  font-size: 14px;
+  color: #5f6368;
+  padding-top: 4px;
+  flex-shrink: 0;
+}
+
+.step-icons-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}

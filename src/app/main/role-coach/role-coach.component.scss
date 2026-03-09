@@ -1,0 +1,122 @@
+.coach-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 100;
+  border: none;
+  border-radius: 28px;
+  padding: 12px 24px;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
+  }
+
+  .coach-fab-inner {
+    font-size: 14px;
+    font-weight: 600;
+    color: #202124;
+    white-space: nowrap;
+  }
+}
+
+.coach-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+}
+
+.coach-popup {
+  position: fixed;
+  bottom: 84px;
+  right: 24px;
+  width: 340px;
+  max-height: 480px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  z-index: 300;
+  overflow-y: auto;
+}
+
+.coach-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+
+  .coach-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #202124;
+  }
+
+  .coach-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #5f6368;
+    padding: 4px;
+    border-radius: 50%;
+
+    &:hover {
+      background: #f1f3f4;
+    }
+  }
+}
+
+.coach-selector {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.role-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .role-option-icon {
+    width: 16px;
+    height: auto;
+  }
+}
+
+.coach-body {
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+
+.coach-intro {
+  font-size: 14px;
+  color: #202124;
+  line-height: 1.5;
+  margin: 0 0 12px 0;
+}
+
+.coach-subgoals {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0 0 12px 0;
+
+  li {
+    font-size: 14px;
+    font-weight: 600;
+    color: #202124;
+    padding: 2px 0;
+  }
+}
+
+.coach-footer {
+  font-size: 13px;
+  color: #1a73e8;
+  line-height: 1.4;
+  margin: 0;
+}

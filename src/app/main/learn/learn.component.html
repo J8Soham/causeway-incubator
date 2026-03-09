@@ -1,0 +1,52 @@
+<app-navbar></app-navbar>
+
+<main class="learn-container">
+    <!-- Back navigation -->
+    <nav class="learn-breadcrumb">
+        <button mat-button (click)="goBack()" class="back-btn">
+            <mat-icon>arrow_back</mat-icon>
+            Back to Learning Path
+        </button>
+
+        @if (step()) {
+        <div class="breadcrumb-trail">
+            <span class="breadcrumb-role" [style.color]="roleColor()">{{ roleName() }}</span>
+            <mat-icon class="breadcrumb-separator">chevron_right</mat-icon>
+            <span class="breadcrumb-subgoal">{{ subgoalName() }}</span>
+        </div>
+        }
+    </nav>
+
+    @if (loading()) {
+    <!-- Loading state -->
+    <div class="learn-loading">
+        <mat-spinner diameter="48"></mat-spinner>
+        <p>Loading guide...</p>
+    </div>
+    } @else if (error()) {
+    <!-- Error state -->
+    <div class="learn-error">
+        <mat-icon class="error-icon">warning</mat-icon>
+        <h3>Unable to load guide</h3>
+        <p>{{ error() }}</p>
+        <button mat-raised-button color="primary" (click)="goBack()">
+            <mat-icon>arrow_back</mat-icon> Return to Learning Path
+        </button>
+    </div>
+    } @else {
+    <!-- Guide content -->
+    <article class="learn-content">
+        <!-- Step header -->
+        <header class="step-header" [style.border-left-color]="roleColor()">
+            <div class="step-type-badge" [style.background-color]="typeColor()">
+                <mat-icon>{{ typeIcon() }}</mat-icon>
+                <span>{{ stepType() }}</span>
+            </div>
+            <h1 class="step-title">{{ step()?.name }}</h1>
+        </header>
+
+        <!-- Guide body -->
+        <div class="guide-body" [innerHTML]="guideHtml()"></div>
+    </article>
+    }
+</main>

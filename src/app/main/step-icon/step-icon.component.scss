@@ -1,0 +1,31 @@
+:host {
+  display: inline-block;
+}
+
+.step-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  .step-type-icon {
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
+    color: #fff;
+  }
+
+  &:hover {
+    transform: scale(1.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #1a73e8;
+    outline-offset: 2px;
+  }
+}

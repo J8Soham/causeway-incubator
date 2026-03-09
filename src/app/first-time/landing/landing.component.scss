@@ -1,0 +1,171 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.landing-page {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  background: #fff;
+  overflow: hidden;
+  padding-left: 10%;
+}
+
+// --- Main content ---
+.landing-content {
+  position: relative;
+  z-index: 2;
+}
+
+.brand-name {
+  font-size: 56px;
+  font-weight: 400;
+  color: #7c6bc4;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.5px;
+}
+
+.tagline {
+  font-size: 18px;
+  font-weight: 400;
+  color: #333;
+  line-height: 1.6;
+  margin: 0 0 32px 0;
+}
+
+.get-started-btn {
+  background-color: #e53935 !important;
+  color: #fff !important;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  padding: 10px 28px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+// --- Hexagon decorations ---
+.hex-cluster {
+  position: absolute;
+  z-index: 1;
+}
+
+.hex-cluster-left {
+  bottom: -20px;
+  left: -40px;
+}
+
+.hex-cluster-right {
+  top: 40px;
+  right: -20px;
+}
+
+.hexagon {
+  position: absolute;
+  width: 80px;
+  height: 92px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+// Bottom-left cluster hexagons — soft purple/blue
+.hex-1 {
+  background: rgba(180, 170, 220, 0.25);
+  top: 0;
+  left: 0;
+}
+
+.hex-2 {
+  background: rgba(180, 170, 220, 0.2);
+  top: -70px;
+  left: 60px;
+}
+
+.hex-3 {
+  background: rgba(180, 170, 220, 0.15);
+  top: -140px;
+  left: 0;
+}
+
+.hex-4 {
+  background: rgba(180, 170, 220, 0.2);
+  top: -70px;
+  left: 120px;
+}
+
+.hex-5 {
+  background: rgba(180, 170, 220, 0.12);
+  top: -140px;
+  left: 120px;
+}
+
+// Top-right cluster hexagons — multi-colored shapes
+.hex-6 {
+  background: rgba(180, 170, 220, 0.3);
+  top: 0;
+  left: 0;
+  width: 70px;
+  height: 80px;
+}
+
+.hex-7 {
+  background: rgba(230, 100, 110, 0.5);
+  top: -60px;
+  left: 50px;
+  width: 60px;
+  height: 69px;
+  border-radius: 50%;
+  clip-path: none;
+}
+
+.hex-8 {
+  background: rgba(250, 200, 80, 0.6);
+  top: 0;
+  left: 100px;
+  width: 55px;
+  height: 63px;
+}
+
+.hex-9 {
+  background: rgba(180, 170, 220, 0.2);
+  top: 70px;
+  left: 60px;
+  width: 70px;
+  height: 80px;
+}
+
+.hex-10 {
+  background: rgba(180, 170, 220, 0.15);
+  top: -60px;
+  left: 120px;
+  width: 70px;
+  height: 80px;
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .landing-page {
+    padding-left: 5%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .brand-name {
+    font-size: 40px;
+  }
+
+  .tagline {
+    font-size: 16px;
+  }
+
+  .hex-cluster-left {
+    display: none;
+  }
+
+  .hex-cluster-right {
+    display: none;
+  }
+}

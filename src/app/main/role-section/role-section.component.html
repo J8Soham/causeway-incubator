@@ -1,0 +1,18 @@
+<section class="role-section" [attr.id]="'role-' + role().__id">
+  <div class="role-heading">
+    <img [src]="roleIconPath()" [alt]="role().name + ' icon'" class="role-hex-icon" />
+    <h2 [style.color]="role().color">{{ role().name }}</h2>
+  </div>
+
+  @for (subgoal of subgoals(); track subgoal.__id) {
+  <div class="subgoal-row">
+    <span class="subgoal-label">{{ subgoal.name }}</span>
+    <div class="step-icons-row">
+      @for (step of getSubsubgoals(subgoal.__id); track step.__id) {
+      <app-step-icon [step]="step" [status]="getStatus(step.__id)" [roleColor]="role().color"
+        (clicked)="onStepClicked($event)" />
+      }
+    </div>
+  </div>
+  }
+</section>

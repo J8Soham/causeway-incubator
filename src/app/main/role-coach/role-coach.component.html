@@ -1,0 +1,48 @@
+<!-- Floating button -->
+<button class="coach-fab" (click)="toggle()" [attr.aria-label]="coachLabel()">
+  <span class="coach-fab-inner">
+    🤖 {{ coachLabel() }}
+  </span>
+</button>
+
+<!-- Popup overlay -->
+@if (isOpen()) {
+<div class="coach-backdrop" (click)="close()"></div>
+<div class="coach-popup">
+  <div class="coach-header">
+    <span class="coach-title">🤖 Role Coach</span>
+    <button class="coach-close" (click)="close()" aria-label="Close role coach">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <mat-form-field appearance="outline" class="coach-selector">
+    <mat-select [value]="selectedRoleId()" (selectionChange)="onRoleChange($event.value)">
+      @for (role of roles(); track role.__id) {
+      <mat-option [value]="role.__id">
+        <div class="role-option">
+          <img [src]="getIconPath(role.name)" [alt]="role.name" class="role-option-icon" />
+          {{ role.name }}
+        </div>
+      </mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  @if (selectedRole(); as role) {
+  <div class="coach-body">
+    <p class="coach-intro">
+      I've tailored explanations, tasks, and examples to match this role. Let's focus on mastering these subgoals:
+    </p>
+    <ul class="coach-subgoals">
+      @for (subgoal of selectedSubgoals(); track subgoal.__id) {
+      <li>{{ subgoal.name }}</li>
+      }
+    </ul>
+    <p class="coach-footer">
+      Each task is already broken down by subgoals, which you can see by hovering subgoal icons. Happy learning!
+    </p>
+  </div>
+  }
+</div>
+}

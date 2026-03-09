@@ -1,0 +1,6 @@
+<div class="curriculum-grid">
+  @for (role of roles(); track role.__id) {
+  <app-role-section [role]="role" [allSubgoals]="subgoals()" [allSubsubgoals]="subsubgoals()"
+    [progressMap]="progressMap()" (stepClicked)="onStepClicked($event)" />
+  }
+</div>

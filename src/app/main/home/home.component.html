@@ -1,0 +1,97 @@
+<app-navbar></app-navbar>
+
+<main class="home-container">
+  <!-- Error state -->
+  @if (errorMessage(); as err) {
+  <div class="error-state">
+    <mat-icon>error_outline</mat-icon>
+    <p>{{ err }}</p>
+    <button mat-raised-button color="primary" (click)="retry()">
+      <mat-icon>refresh</mat-icon> Retry
+    </button>
+  </div>
+  } @else if (loading()) {
+  <!-- Loading state -->
+  <div class="loading-state">
+    <mat-spinner diameter="48"></mat-spinner>
+    <p>Loading your learning pathway...</p>
+  </div>
+  } @else {
+  <div class="home-layout">
+    <!-- Main content -->
+    <div class="main-content">
+      <!-- Header section -->
+      @if (course(); as c) {
+      <header class="course-header">
+        <h1>{{ c.title }}</h1>
+        <p class="course-subtitle">{{ c.subtitle }}</p>
+        <p class="course-description">{{ c.description }}</p>
+      </header>
+      }
+
+      <!-- Progress overview -->
+      <section class="progress-section">
+        <div class="progress-header">
+          <span class="progress-label">Overall Progress</span>
+          <span class="progress-percent">{{ overallProgress() }}%</span>
+        </div>
+        <mat-progress-bar mode="determinate" [value]="overallProgress()" aria-label="Overall learning progress">
+        </mat-progress-bar>
+      </section>
+
+      <!-- Continue CTA -->
+      @if (nextStep(); as next) {
+      <mat-card class="continue-card" appearance="outlined">
+        <mat-card-content>
+          <div class="continue-inner">
+            <div class="continue-info">
+              <span class="continue-label">Continue Learning</span>
+              <span class="continue-step">{{ next.subsubgoal.name }}</span>
+              <span class="continue-context">{{ next.roleName }} · {{ next.subgoalName }}</span>
+            </div>
+            <button mat-raised-button color="primary">
+              Continue <mat-icon>arrow_forward</mat-icon>
+            </button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      }
+
+      <!-- Legends -->
+      <section class="legends-section">
+        <div class="legend-group">
+          <span class="legend-title">Progress</span>
+          <div class="legend-items">
+            <span class="legend-item"><span class="legend-dot status-not-started"></span> Not Started</span>
+            <span class="legend-item"><span class="legend-dot status-in-progress"></span> In Progress</span>
+            <span class="legend-item"><span class="legend-dot status-complete"></span> Complete</span>
+            <span class="legend-item"><span class="legend-dot status-similar-completed"></span> Similar Completed</span>
+          </div>
+        </div>
+        <div class="legend-group">
+          <span class="legend-title">Step Type</span>
+          <div class="legend-items">
+            <span class="legend-item"><mat-icon class="legend-icon">lightbulb</mat-icon> Concept</span>
+            <span class="legend-item"><mat-icon class="legend-icon">code</mat-icon> Task</span>
+            <span class="legend-item"><mat-icon class="legend-icon">rate_review</mat-icon> Review</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Curriculum Grid -->
+      <app-curriculum-grid [roles]="roles()" [subgoals]="subgoals()" [subsubgoals]="subsubgoals()"
+        [progressMap]="progressMap()" (stepClicked)="onStepClicked($event)" />
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <app-sidebar-toc [roles]="roles()" [subgoals]="subgoals()" />
+    </aside>
+  </div>
+
+  <!-- Role Coach (floating) -->
+  @if (roles().length > 0) {
+  <app-role-coach [roles]="roles()" [subgoals]="subgoals()" />
+  }
+  }
+</main>
